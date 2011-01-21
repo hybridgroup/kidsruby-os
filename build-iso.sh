@@ -31,7 +31,7 @@ sudo uck-remaster-chroot-rootfs
 sudo apt-get update
 
 # Now we procede to install the desktop environment
-sudo apt-get install xorg xfce4 gdm
+echo Y | apt-get install xfce4 xdm
 
 # Install some required libraries
 sudo apt-get install binutils sudo
