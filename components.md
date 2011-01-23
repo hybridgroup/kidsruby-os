@@ -18,10 +18,6 @@ UCK is a tool that helps you customizing official Ubuntu Live CDs (including Kub
 
 A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.
 
-[Hackety Hack](http://hackety-hack.com)
-
-Hackety Hack will teach you the absolute basics of programming from the ground up. No previous programming experience is needed!
-
 [Vagrant](http://vagrantup.com)
 
 Vagrant is a tool for building and distributing virtualized development environments.
