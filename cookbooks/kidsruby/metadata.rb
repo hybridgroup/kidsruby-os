@@ -1,0 +1,2 @@
+depends "uck"
+supports "ubuntu"
