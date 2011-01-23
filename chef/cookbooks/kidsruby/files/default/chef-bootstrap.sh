@@ -19,8 +19,18 @@ command -v chef-solo >/dev/null && {
 # Setup vagrant homedir temporarily
 mkdir /home/vagrant
 
-# update the system
+# operate headless
 export DEBIAN_FRONTEND=noninteractive
+
+# ignore kernel updates
+echo "linux-generic hold" | dpkg --set-selections
+echo "linux-headers-generic hold" | dpkg --set-selections
+echo "linux-image-generic hold" | dpkg --set-selections
+echo "linux-generic-pae hold" | dpkg --set-selections
+echo "linux-headers-generic-pae hold" | dpkg --set-selections
+echo "linux-image-generic-pae hold" | dpkg --set-selections
+
+# update the system
 apt-get update
 apt-get dist-upgrade -y
 
