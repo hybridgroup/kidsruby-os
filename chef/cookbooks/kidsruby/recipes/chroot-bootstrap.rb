@@ -19,7 +19,18 @@ execute "Bootstrap Chef in the chroot" do
   command "`which chroot` /root/tmp/remaster-root /bin/bash -c 'sh /chef-bootstrap.sh'"
 end
 
-# copy the host cookbooks to the chroot
-execute "Copy Chef cookbooks to the chroot" do
-  command "cp -R /tmp/vagrant-chef/cookbooks-0 /root/tmp/remaster-root/chef-cookbooks"
+# copy the host chef configuration to the chroot
+execute "Copy Chef to the chroot" do
+  command "cp -R /tmp/vagrant-chef /root/tmp/remaster-root/vagrant-chef"
+end
+
+execute "update chef configuration paths in the chroot" do
+  command [
+    "sed -i 's/\\/tmp//g' /root/tmp/remaster-root/vagrant-chef/solo.rb",
+    "sed -i 's/role\\[vm_host\\]/role\\[livecd\\]/' /root/tmp/remaster-root/vagrant-chef/dna.json"
+  ].join(" && ")
+end
+
+execute "run chef within the chroot" do
+  command "`which chroot` /root/tmp/remaster-root /bin/bash -c 'chef-solo -c /vagrant-chef/solo.rb -j /vagrant-chef/dna.json'"
 end
