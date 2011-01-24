@@ -16,19 +16,19 @@ command -v chef-solo >/dev/null && {
   exit
 }
 
-# Setup vagrant homedir temporarily
-mkdir /home/vagrant
-
 # operate headless
 export DEBIAN_FRONTEND=noninteractive
 
 # ignore kernel updates
-echo "linux-generic hold" | dpkg --set-selections
-echo "linux-headers-generic hold" | dpkg --set-selections
-echo "linux-image-generic hold" | dpkg --set-selections
-echo "linux-generic-pae hold" | dpkg --set-selections
-echo "linux-headers-generic-pae hold" | dpkg --set-selections
-echo "linux-image-generic-pae hold" | dpkg --set-selections
+# echo "linux-generic hold" | dpkg --set-selections
+# echo "linux-headers-generic hold" | dpkg --set-selections
+# echo "linux-image-generic hold" | dpkg --set-selections
+# echo "linux-generic-pae hold" | dpkg --set-selections
+# echo "linux-headers-generic-pae hold" | dpkg --set-selections
+# echo "linux-image-generic-pae hold" | dpkg --set-selections
+
+# ignore apparmor
+echo "apparmor hold" | dpkg --set-selections
 
 # update the system
 apt-get update
@@ -54,8 +54,9 @@ cd rubygems* && ruby1.8 setup.rb --no-ri --no-rdoc
 gem1.8 update --system
 gem1.8 install chef ohai --no-rdoc --no-ri
 
-# Remove vagrant homedir
-rm -rf /home/vagrant
+# symlink ruby and gem commands so chef can find them
+ln -s /usr/bin/ruby1.8 /usr/bin/ruby
+ln -s /usr/bin/gem1.8 /usr/bin/gem
 
 echo '-------------------------'
 echo 'Bootstrapping Chef - done'
