@@ -27,7 +27,7 @@ Vagrant::Config.run do |config|
     # You may also specify custom JSON attributes:
     chef.json.merge!({
       :kidsruby => {
-        :version => "0.2.0"
+        :version => "0.2.1"
       }
     })
   end
