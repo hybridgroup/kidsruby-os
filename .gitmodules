@@ -1,3 +1,0 @@
-[submodule "chef/cookbooks"]
-	path = chef/cookbooks
-	url = git://github.com/hybridgroup/kidsruby-cookbooks
