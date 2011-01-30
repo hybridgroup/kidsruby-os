@@ -1,9 +1,3 @@
-[submodule "chef/cookbooks/rvm"]
-	path = chef/cookbooks/rvm
-	url = https://github.com/fnichol/chef-rvm.git
-[submodule "chef/cookbooks/bashrc"]
-	path = chef/cookbooks/bashrc
-	url = https://github.com/fnichol/chef-bashrc.git
 [submodule "chef/cookbooks"]
 	path = chef/cookbooks
 	url = git://github.com/hybridgroup/kidsruby-cookbooks
