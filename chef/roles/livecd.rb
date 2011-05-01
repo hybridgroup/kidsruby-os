@@ -4,5 +4,10 @@ run_list(
   "role[base]",
   "role[ubuntu]",
   "recipe[xfce4]",
-  "recipe[rvm]"
+  "recipe[cmake]",
+  "recipe[libqt4]",
+  "recipe[wifi-networking]",
+  "recipe[gosu]",
+  "recipe[rvm]",
+  "recipe[kidsruby]"
 )
