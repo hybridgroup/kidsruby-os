@@ -9,5 +9,6 @@ run_list(
   "recipe[wifi-networking]",
   "recipe[gosu]",
   "recipe[rvm]",
-  "recipe[kidsruby]"
+  "recipe[kidsruby]",
+  "recipe[virtualbox]"
 )
